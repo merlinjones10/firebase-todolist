@@ -26,14 +26,7 @@ function App() {
   // getMultDocs();
 
   const [tasks, setTasks] = React.useState([]);
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const db = firebase.firestore();
-      const data = await db.collection("things").get();
-      setTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    fetchData();
-  }, []);
+
   return (
     <ul>
       <RealtimeSnapshotGet />
